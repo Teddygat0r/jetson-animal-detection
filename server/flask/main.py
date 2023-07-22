@@ -126,8 +126,6 @@ for i in images:
     print(insert_image(i))
 
 
-
-
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
 
@@ -144,17 +142,10 @@ def api_add_image():
     image = request.get_json()
     return jsonify(insert_image(image))
 
-@app.route('/api/images/update',  methods = ['PUT'])
-def api_update_image():
-    image = request.get_json()
-    return jsonify(update_image(image))
-
 @app.route('/api/images/delete/<image_id>',  methods = ['DELETE'])
 def api_delete_image(image_id):
     return jsonify(delete_image(image_id))
 
 
 if __name__ == "__main__":
-    #app.debug = True
-    #app.run(debug=True)
     app.run()
