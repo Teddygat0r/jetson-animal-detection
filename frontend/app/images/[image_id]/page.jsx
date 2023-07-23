@@ -9,6 +9,7 @@ export default function Page({ params }) {
     const router = useRouter();
 
     const queryData = async (savedUrl) => {
+        console.log(`${savedUrl}/api/images/${params.image_id}`)
         try {
             const response = await fetch(
                 `${savedUrl}/api/images/${params.image_id}`,

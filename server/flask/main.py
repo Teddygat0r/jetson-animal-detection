@@ -84,14 +84,15 @@ def get_image_by_id(image_id):
         conn = connect_to_db()
         conn.row_factory = sqlite3.Row
         cur = conn.cursor()
-        cur.execute("SELECT * FROM images WHERE image_id = ?", (image_id,))
+        print(image_id)
+        cur.execute("SELECT * FROM images WHERE image_id = ?", (image_id))
         row = cur.fetchone()
 
         # convert row object to dictionary
         image["image_id"] = row["image_id"]
-        image["species"] = i["species"]
-        image["timestamp"] = i["timestamp"]
-        image["image"] = i["image"]
+        image["species"] = row["species"]
+        image["timestamp"] = row["timestamp"]
+        image["image"] = row["image"]
     except:
         image = {}
 
@@ -118,63 +119,6 @@ images = [
         "timestamp": "00000",
         "image": imageToBase64("0b1a3af197.jpg"),
     }, 
-    {
-        "species": "antelope",
-        "timestamp": "00000",
-        "image": imageToBase64("0b1a3af197.jpg"),
-    },{
-        "species": "antelope",
-        "timestamp": "00000",
-        "image": imageToBase64("0b1a3af197.jpg"),
-    }, 
-    {
-        "species": "antelope",
-        "timestamp": "00000",
-        "image": imageToBase64("0b1a3af197.jpg"),
-    },{
-        "species": "antelope",
-        "timestamp": "00000",
-        "image": imageToBase64("0b1a3af197.jpg"),
-    }, 
-    {
-        "species": "antelope",
-        "timestamp": "00000",
-        "image": imageToBase64("0b1a3af197.jpg"),
-    },{
-        "species": "antelope",
-        "timestamp": "00000",
-        "image": imageToBase64("0b1a3af197.jpg"),
-    }, 
-    {
-        "species": "antelope",
-        "timestamp": "00000",
-        "image": imageToBase64("0b1a3af197.jpg"),
-    },
-    {
-        "species": "gg",
-        "timestamp": "00000",
-        "image": imageToBase64("0b1a3af197.jpg"),
-    }, 
-    {
-        "species": "ggd",
-        "timestamp": "00000",
-        "image": imageToBase64("0b1a3af197.jpg"),
-    },
-    {
-        "species": "gfg",
-        "timestamp": "00000",
-        "image": imageToBase64("0b1a3af197.jpg"),
-    },
-    {
-        "species": "gsg",
-        "timestamp": "00000",
-        "image": imageToBase64("0b1a3af197.jpg"),
-    },
-    {
-        "species": "gga",
-        "timestamp": "00000",
-        "image": imageToBase64("0b1a3af197.jpg"),
-    }
 ]
 
 create_db_table()

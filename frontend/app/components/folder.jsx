@@ -7,12 +7,9 @@ import Link from "next/link";
 export default function Folder(props) {
     const [expand, setExpand] = useState(false);
     const handleClick = () => {
-        setExpand((expand) => !expand);
+        console.log("click")
+        setExpand(!expand);
     };
-
-    useEffect(() => {
-        console.log(props);
-    });
 
     return (
         <div className="w-64">
